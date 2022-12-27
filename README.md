@@ -32,7 +32,7 @@
     line two \"quote\"
     message"
     
-  ### Change Commitment
+  ### Revise commit message
     git commit --amend
     
   ### View Logs
