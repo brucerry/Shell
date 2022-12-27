@@ -19,7 +19,7 @@
     # To unstage all changes for all files
     git reset
     
-  ### Commit
+  ### Make Commitment
     # Stage the files
     git add <files>
     
@@ -32,13 +32,23 @@
     line two \"quote\"
     message"
     
+  ### Change Commitment
+    git commit --amend
+    
+  ### View Logs
+    git log # see commit logs
+    tig     # Text-mode Interface for Git
+    
+  ### Check Git status with remote and local
+    git status
+    
   ### LFS
     git lfs track         # see tracked formats
     git lfs track <files> # track specific files
     git lfs ls-files      # list tracked files
     
     git add .gitattributes
-    git commit -m "Upadte .gitattributes"
+    git commit -m "Update .gitattributes"
     git push
 
   
