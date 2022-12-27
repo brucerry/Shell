@@ -36,5 +36,9 @@
     git lfs track         # see tracked formats
     git lfs track <files> # track specific files
     git lfs ls-files      # list tracked files
+    
+    git add .gitattributes
+    git commit -m "Upadte .gitattributes"
+    git push
 
   
