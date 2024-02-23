@@ -5,7 +5,7 @@
 tftpboot 0x44000000 single-image.img
 imgaddr=44000000 && source $imgaddr:script
 
-====================================
+################
 
 // read out partition from NOR
 sf probe && sf read 0x44000000 0xf80000 0x80000 && tftpput 0x44000000 0x80000 ART.bin
