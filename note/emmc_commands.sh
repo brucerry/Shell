@@ -115,7 +115,7 @@ cat size
 
 # Dump eMMC
 cd /tmp
-rm -rf /overlay/*
+# rm -rf /overlay/*
 cat /dev/mmcblk0 | gzip -c - > /tmp/eMMC_flashdump.gzip
 tftp -p 192.168.1.10 -l /tmp/eMMC_flashdump.gzip -r eMMC_flashdump.gzip
 
