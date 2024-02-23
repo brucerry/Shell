@@ -1,3 +1,7 @@
+################
+#    U-Boot    #
+################
+
 tftpboot 0x44000000 single-image.img
 imgaddr=44000000 && source $imgaddr:script
 
