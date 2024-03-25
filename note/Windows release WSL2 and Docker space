@@ -21,9 +21,9 @@ wsl -l -v
 # Backup WSL2 Linux distributions
 #
 wsl --shutdown
-wsl --export Ubuntu C:\Users\800548\Ubuntu_backup
-wsl --export docker-desktop-data C:\Users\800548\docker-desktop-data_backup
-wsl --export docker-desktop C:\Users\800548\docker-desktop_backup
+wsl --export Ubuntu C:\Users\800548\Ubuntu_backup.tar
+wsl --export docker-desktop-data C:\Users\800548\docker-desktop-data_backup.tar
+wsl --export docker-desktop C:\Users\800548\docker-desktop_backup.tar
 
 #
 # Run diskpart
