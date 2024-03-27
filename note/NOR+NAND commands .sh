@@ -29,6 +29,9 @@ sf probe && sf read 0x44000000 0x0 0x800000 && tftpput 0x44000000 0x800000 NOR_8
 # read out 32MB NOR
 sf probe && sf read 0x44000000 0x0 0x2000000 && tftpput 0x44000000 0x2000000 NOR_32MB.bin
 
+# read out 64MB NOR
+sf probe && sf read 0x44000000 0x0 0x4000000 && tftpput 0x44000000 0x4000000 NOR_64MB.bin
+
 
 # write in 8MB NOR
 tftpboot 0x44000000 NOR_8MB.bin
@@ -37,6 +40,10 @@ sf probe && sf erase 0x0 0x800000 && sf write 0x44000000 0x0 0x800000
 # write in 32MB NOR
 tftpboot 0x44000000 NOR_32MB.bin
 sf probe && sf erase 0x0 0x2000000 && sf write 0x44000000 0x0 0x2000000
+
+# write in 64MB NOR
+tftpboot 0x44000000 NOR_64MB.bin
+sf probe && sf erase 0x0 0x4000000 && sf write 0x44000000 0x0 0x4000000
 
 ################
 ################
