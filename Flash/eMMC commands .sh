@@ -70,7 +70,9 @@
 
     MMC read: dev # 0, block # 1536, count 16 ... 16 blocks read: OK
 
-> mmc write 0x44000000 0x0 0x100 ## Write 0x100 blocks (256 * 512 Bytes) data started at RAM address 0x44000000 into eMMC started at the 0x0 block
+> mmc write 0x44000000 0x600 0x10 ## Write 0x10 blocks (16 * 512 Bytes) data started at RAM address 0x44000000 into eMMC started at the 0x600 block
+
+    MMC write: dev # 0, block # 1536, count 16 ... 16 blocks written: OK
 
 > mmc erase 0x3 0x6 ## Erase 0x6 blocks (6 * 512 Bytes) data started at the 0x3 block of eMMC
 
