@@ -11,11 +11,12 @@ wsl -l -v
       docker-desktop         Running         2
 
 #
-# Search for 'ext4.vhdx' files
+# Search for 'ext4.vhdx' files and 'docker_data.vhdx' files
 #
 "C:\Users\800548\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx"         7.00GB
 "C:\Users\800548\AppData\Local\Docker\wsl\distro\ext4.vhdx"                                                      146MB
 "C:\Users\800548\AppData\Local\Docker\wsl\data\ext4.vhdx"                                                        23.4GB
+"C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx"                                                   572GB
 
 #
 # Backup WSL2 Linux distributions
@@ -38,5 +39,8 @@ select vdisk file="C:\Users\800548\AppData\Local\Packages\CanonicalGroupLimited.
 compact vdisk
 detach vdisk
 select vdisk file="C:\Users\800548\AppData\Local\Docker\wsl\data\ext4.vhdx"
+compact vdisk
+detach vdisk
+select vdisk file="C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx"
 compact vdisk
 detach vdisk
