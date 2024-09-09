@@ -16,7 +16,7 @@ wsl -l -v
 "C:\Users\user\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx"         7.00GB
 "C:\Users\user\AppData\Local\Docker\wsl\distro\ext4.vhdx"                                                      146MB
 "C:\Users\user\AppData\Local\Docker\wsl\data\ext4.vhdx"                                                        23.4GB
-"C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx"                                                   572GB
+"C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx"                                                 572GB
 
 #
 # Backup WSL2 Linux distributions
