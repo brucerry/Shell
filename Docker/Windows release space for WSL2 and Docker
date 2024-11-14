@@ -44,7 +44,18 @@ detach vdisk
 ###############################
 #      2024-09-09 updated     #
 ###############################
+
 The virtual disks are installed at
 - C:\Users\user\AppData\Local\Docker\wsl\main\ext4.vhdx
 - C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx
-The compact command is useless now
+
+###############################
+#      2024-11-14 updated     #
+###############################
+
+wsl --shutdown
+diskpart
+select vdisk file="C:\Users\user\AppData\Local\Docker\wsl\disk\docker_data.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
