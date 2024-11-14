@@ -34,6 +34,9 @@ docker exec -it {container_name} bash
 ###############################################
 ###############################################
 docker login
+docker commit ubt14.04 ubt14.04
+docker tag ubt14.04 brucerry/ubt14.04
+docker push brucerry/ubt14.04
 docker commit ubt16.04 ubt16.04
 docker tag ubt16.04 brucerry/ubt16.04
 docker push brucerry/ubt16.04
