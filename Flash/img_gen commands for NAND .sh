@@ -9,18 +9,14 @@ dd if=/dev/zero ibs=128k count=480| tr '\000' '\377' > out1.pad
 dd if=/dev/zero ibs=128k count=480| tr '\000' '\377' > out2.pad
 dd if=/dev/zero ibs=128k count=1088| tr '\000' '\377' > out3.pad
 
-
 dd if=openwrt-ipq-ipq60xx-ubi-root.img of=out1.pad conv=notrunc
-
 
 ./img_gen out1.pad -h -8 -O 128 -o out1.ecc
 ./img_gen out2.pad -h -8 -O 128 -o out2.ecc
 ./img_gen out3.pad -h -8 -O 128 -o out3.ecc
 
-
 cat out1.ecc out2.ecc out3.ecc > MW09_nand_272MB.bin
 ```
-
 
 ##################
 #    Example 2   #
@@ -35,10 +31,8 @@ dd if=/dev/zero ibs=128k count=416| tr '\000' '\377' > rootfs_1.pad
 dd if=/dev/zero ibs=128k count=64| tr '\000' '\377' > WIFIFW_1.pad
 dd if=/dev/zero ibs=128k count=3136| tr '\000' '\377' > empty.pad
 
-
 dd if=openwrt-ipq807x-ipq807x_32-ubi-root.img of=rootfs.pad conv=notrunc
 dd if=wifi_fw_ubi_v2.img of=WIFIFW.pad conv=notrunc
-
 
 ./img_gen rootfs.pad -h -4 -o out1.ecc
 ./img_gen WIFIFW.pad -h -4 -o out2.ecc
@@ -46,10 +40,8 @@ dd if=wifi_fw_ubi_v2.img of=WIFIFW.pad conv=notrunc
 ./img_gen WIFIFW_1.pad -h -4 -o out4.ecc
 ./img_gen empty.pad -h -4 -o out5.ecc
 
-
 cat out1.ecc out2.ecc out3.ecc out4.ecc out5.ecc > MW08_nand_528MB.bin
 ```
-
 
 ##################
 #    Example 3   #
@@ -113,3 +105,28 @@ APPSBLENV.ecc APPSBL.ecc APPSBL_1.ecc ART.ecc TRAINING.ecc rootfs.ecc \
 rootfs_1.ecc empty.ecc > ECW200_NAND_132MB.bin
 ```
 
+##################
+#    Example 4   #
+##################
+
+512MB NAND (4K + 256) (8-bit ECC)
+
+```
+dd if=/dev/zero ibs=128k count=4 | tr '\000' '\377' > TRAINING.pad
+dd if=/dev/zero ibs=128k count=2 | tr '\000' '\377' > LICENSE.pad
+dd if=/dev/zero ibs=128k count=668 | tr '\000' '\377' > rootfs.pad
+dd if=/dev/zero ibs=128k count=668 | tr '\000' '\377' > rootfs_1.pad
+dd if=/dev/zero ibs=128k count=24 | tr '\000' '\377' > NVRAM.pad
+dd if=/dev/zero ibs=128k count=2730 | tr '\000' '\377' > empty.pad
+
+dd if=openwrt-ipq95xx-ipq95xx_32-ubi-root-m4096-p256KiB.img of=rootfs.pad conv=notrunc
+
+./img_gen TRAINING.pad -b -e -8 -O 256 -o TRAINING.ecc
+./img_gen LICENSE.pad -b -e -8 -O 256 -o LICENSE.ecc
+./img_gen rootfs.pad -b -e -8 -O 256 -o rootfs.ecc
+./img_gen rootfs_1.pad -b -e -8 -O 256 -o rootfs_1.ecc
+./img_gen NVRAM.pad -b -e -8 -O 256 -o NVRAM.ecc
+./img_gen empty.pad -b -e -8 -O 256 -o empty.ecc
+
+cat TRAINING.ecc LICENSE.ecc rootfs.ecc rootfs_1.ecc NVRAM.ecc empty.ecc > AP750_NAND_544MB.bin
+```
