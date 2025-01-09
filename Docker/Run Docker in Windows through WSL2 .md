@@ -5,7 +5,7 @@
 ## In Windows PowerShell
 
 #### Install WSL2 with default Linux distribution
-Or you may install it through Mircrosoft Store in Win11
+Or you may install it through Microsoft Store in Win11
 ```
 wsl --list
 wsl --list --online
