@@ -22,14 +22,14 @@ C:\Users\user\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp
 
 ## In WSL Ubuntu CLI
 
-#### Optional: Install OpenCL to enhance Intel performance
+#### [Optional] Install OpenCL to enhance Intel performance
 ```
 cd ~
 sudo apt-get update
 sudo apt install ocl-icd-opencl-dev
 ```
 
-#### Optional: Install Intel packages: intel-gmmlib, intel-opencl-icd, intel-level-zero-gpu
+#### [Optional] Install Intel packages: intel-gmmlib, intel-opencl-icd, intel-level-zero-gpu
 ```
 cd ~
 mkdir neo
