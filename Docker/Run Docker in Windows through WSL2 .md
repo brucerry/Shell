@@ -54,7 +54,7 @@ sudo apt install -y docker.io
 docker --version
 ```
 
-#### Install systemctl and systemd for WSL2
+#### [Optional] Install systemctl and systemd for WSL2
 ```
 cd ~
 git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
@@ -62,7 +62,7 @@ cd ubuntu-wsl2-systemd-script
 bash ubuntu-wsl2-systemd-script.sh --force
 ```
 
-#### Restart WSL2 Ubuntu CLI then to check systemctl
+#### [Optional] Restart WSL2 Ubuntu CLI then to check systemctl
 ```
 ps aux
 ```
