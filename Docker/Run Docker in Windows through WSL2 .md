@@ -22,14 +22,16 @@ C:\Users\user\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp
 
 ## In WSL Ubuntu CLI
 
-#### [Optional] Install OpenCL to enhance Intel performance
+You may be asked to create a user account as default, let's say "bruce"
+
+#### *[Optional] Install OpenCL to enhance Intel performance*
 ```
 cd ~
 sudo apt-get update
 sudo apt install ocl-icd-opencl-dev
 ```
 
-#### [Optional] Install Intel packages: intel-gmmlib, intel-opencl-icd, intel-level-zero-gpu
+#### *[Optional] Install Intel packages: intel-gmmlib, intel-opencl-icd, intel-level-zero-gpu*
 ```
 cd ~
 mkdir neo
@@ -54,7 +56,7 @@ sudo apt install -y docker.io
 docker --version
 ```
 
-#### [Optional] Install systemctl and systemd for WSL2
+#### *[Optional] Install systemctl and systemd for WSL2*
 ```
 cd ~
 git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
@@ -62,7 +64,7 @@ cd ubuntu-wsl2-systemd-script
 bash ubuntu-wsl2-systemd-script.sh --force
 ```
 
-#### [Optional] Restart WSL2 Ubuntu CLI then to check systemctl
+#### *[Optional] Restart WSL2 Ubuntu CLI then to check systemctl*
 ```
 ps aux
 ```
@@ -78,7 +80,7 @@ ps aux | grep docker
 docker login
 docker pull brucerry/ubt22.04
 docker images
-docker run -it --name ubt22.04 -v /root/share:/home/build/share brucerry/ubt22.04
+docker run -it --name ubt22.04 -v /home/bruce/share:/home/build/share brucerry/ubt22.04
 ```
 
 #### Stop container
@@ -99,3 +101,20 @@ docker exec -it ubt22.04 bash
 systemctl stop docker.socket
 ps aux | grep docker
 ```
+
+---
+
+## Attach to Running Container in VS Code
+
+1.  Install **WSL** extensions in VS Code
+2.  Connect to WSL in VS Code with 2 methods:
+    * Run `wsl` and input `code .` in Windows terminal / PowerShell to open VS Code as WSL environment
+    * In VS Code, click the left bottom button and select `Connect to WSL`
+3.  In VS Code WSL, install **Dev Containers** and **Docker** extensions
+4.  Start the container with 2 methods:
+    * Right click **start** in the **Docker** extension UI
+    * Run commands from the above section
+5.  Ensure that the target container has been started
+6.  In VS Code WSL, click the left bottom button and select `Attach to Running Container...`
+7.  A new VS Code window being popped as the container environment
+8.  You now have a window for WSL and another window for the container
