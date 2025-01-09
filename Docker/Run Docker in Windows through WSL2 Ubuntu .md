@@ -116,5 +116,30 @@ ps aux | grep docker
     * Run commands from the above section
 5.  Ensure that the target container has been started
 6.  In VS Code WSL, click the left bottom button and select `Attach to Running Container...`
-7.  A new VS Code window being popped as the container environment
+    * If you get an error by attaching docker container, you may need to add your user account into `docker` group:
+      ```
+      sudo groupadd docker
+      sudo usermod -aG docker $USER
+      newgrp docker
+      ```
+      It it does not work, restart the entire WSL environment and VS Code. More to see https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+7.  A new VS Code window should be popped as the container environment
 8.  You now have a window for WSL and another window for the container
+
+---
+
+## *[Optional] Configure Docker to start on boot with systemd*
+
+See https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot-with-systemd
+
+Default Enable
+```
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+```
+
+Default Disable
+```
+sudo systemctl disable docker.service
+sudo systemctl disable containerd.service
+```
