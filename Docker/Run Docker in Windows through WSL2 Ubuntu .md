@@ -122,7 +122,7 @@ ps aux | grep docker
       sudo usermod -aG docker $USER
       newgrp docker
       ```
-      It it does not work, restart the entire WSL environment and VS Code. More to see https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+      If it does not work, restart the entire WSL environment and VS Code. More to see https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 7.  A new VS Code window should be popped as the container environment
 8.  You now have a window for WSL and another window for the container
 
