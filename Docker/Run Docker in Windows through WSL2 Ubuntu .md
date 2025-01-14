@@ -80,6 +80,9 @@ ps aux | grep docker
 docker login
 docker pull brucerry/ubt22.04
 docker images
+docker run -it --name ubt14.04 -v /home/bruce/share:/home/build/share brucerry/ubt14.04
+docker run -it --name ubt16.04 -v /home/bruce/share:/root/share brucerry/ubt22.04
+docker run -it --name ubt18.04 -v /home/bruce/share:/root/share brucerry/ubt22.04
 docker run -it --name ubt22.04 -v /home/bruce/share:/home/build/share brucerry/ubt22.04
 ```
 
