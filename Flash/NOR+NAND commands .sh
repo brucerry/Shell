@@ -2,12 +2,6 @@
 #    U-Boot    #
 ################
 
-tftpboot 0x44000000 single-image.img
-imgaddr=44000000 && source $imgaddr:script
-
-################
-################
-
 # read out partition from NOR
 sf probe && sf read 0x44000000 0xf80000 0x80000 && tftpput 0x44000000 0x80000 ART.bin
 
@@ -70,11 +64,16 @@ tftpboot 0x52000000 ff_66M && tftpboot 0x56200000 ff_66M && nand read.raw 0x5200
 tftpboot 0x52000000 ff_66M && tftpboot 0x56200000 ff_66M && nand read.raw 0x52000000 0x38000000 0x10000 && tftpput 0x52000000 0x8400000 NAND_132MB_8.bin
 
 
-# write in 2 nanddump to device
-tftpboot 0x52000000 NAND_132MB.bin
-nand erase.chip && nand write.raw 0x52000000 0x0 0x10000
-tftpboot 0x52000000 NAND_132MB_2.bin
-nand write.raw 0x52000000 0x8000000 0x10000
+# write in multiple nand dumps to device (2k+64 bytes/page)
+nand erase.chip
+tftpboot 0x52000000 NAND_132MB_1.bin && nand write.raw 0x52000000 0x0 0x10000
+tftpboot 0x52000000 NAND_132MB_2.bin && nand write.raw 0x52000000 0x8000000 0x10000
+tftpboot 0x52000000 NAND_132MB_3.bin && nand write.raw 0x52000000 0x10000000 0x10000
+tftpboot 0x52000000 NAND_132MB_4.bin && nand write.raw 0x52000000 0x18000000 0x10000
+tftpboot 0x52000000 NAND_132MB_5.bin && nand write.raw 0x52000000 0x20000000 0x10000
+tftpboot 0x52000000 NAND_132MB_6.bin && nand write.raw 0x52000000 0x28000000 0x10000
+tftpboot 0x52000000 NAND_132MB_7.bin && nand write.raw 0x52000000 0x30000000 0x10000
+tftpboot 0x52000000 NAND_132MB_8.bin && nand write.raw 0x52000000 0x38000000 0x10000
 
 ################
 ################
