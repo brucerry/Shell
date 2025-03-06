@@ -26,6 +26,9 @@ tftpboot 0x44000000 ART.bin && nand erase 0xf80000 0x80000 && nand write 0x44000
 # read out 8MB NOR
 sf probe && sf read 0x44000000 0x0 0x800000 && tftpput 0x44000000 0x800000 NOR_8MB.bin
 
+# read out 16MB NOR
+sf probe && sf read 0x44000000 0x0 0x1000000 && tftpput 0x44000000 0x1000000 NOR_16MB.bin
+
 # read out 32MB NOR
 sf probe && sf read 0x44000000 0x0 0x2000000 && tftpput 0x44000000 0x2000000 NOR_32MB.bin
 
