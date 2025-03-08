@@ -1,6 +1,7 @@
-# Reference:
-# https://unix.stackexchange.com/questions/33617/how-can-i-update-to-a-newer-version-of-git-using-apt-get
+> Reference: \
+https://unix.stackexchange.com/questions/33617/how-can-i-update-to-a-newer-version-of-git-using-apt-get
 
+```
 # If your system doesn't have add-apt-repository, install it:
 sudo apt-get install python-software-properties software-properties-common
 
@@ -9,3 +10,4 @@ sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com A1715D88E1DF1F24 4
 sudo apt-get update
 sudo apt-get install git -y
 git --version
+```
