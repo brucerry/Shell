@@ -1,7 +1,6 @@
-################
-#    U-Boot    #
-################
+#### U-Boot
 
+```
 > mmc info
 
     Device: sdhci@7804000
@@ -19,7 +18,8 @@
     User Capacity: 7.3 GiB WRREL
     Boot Capacity: 4 MiB ENH
     RPMB Capacity: 4 MiB ENH
-
+```
+```
 > mmc part
 
     Partition Map for MMC device 0  --   Partition Type: EFI
@@ -56,30 +56,38 @@
             attrs:  0x0000000000000000
             type:   ab1760da-a8bb-4d6f-98d2-9ad3ab9009cd
             guid:   bee2a837-dd8e-95b3-2730-a477de7001eb
-
+```
+```
 > mmc dev
 
     switch to partitions #0, OK
     mmc0(part 0) is current device
-
+```
+```
 > mmc list
 
     sdhci@7804000: 0 (eMMC)
-
-> mmc read 0x44000000 0x600 0x10 ## Read eMMC 0x10 blocks (16 * 512 Bytes) data started at the 0x600 block into RAM address 0x44000000
+```
+```
+## Read eMMC 0x10 blocks (16 * 512 Bytes) data started at the 0x600 block into RAM address 0x44000000
+> mmc read 0x44000000 0x600 0x10 
 
     MMC read: dev # 0, block # 1536, count 16 ... 16 blocks read: OK
-
-> mmc write 0x44000000 0x600 0x10 ## Write 0x10 blocks (16 * 512 Bytes) data started at RAM address 0x44000000 into eMMC started at the 0x600 block
+```
+```
+## Write 0x10 blocks (16 * 512 Bytes) data started at RAM address 0x44000000 into eMMC started at the 0x600 block
+> mmc write 0x44000000 0x600 0x10 
 
     MMC write: dev # 0, block # 1536, count 16 ... 16 blocks written: OK
+```
+```
+## Erase 0x6 blocks (6 * 512 Bytes) data started at the 0x3 block of eMMC
+> mmc erase 0x3 0x6 
+```
 
-> mmc erase 0x3 0x6 ## Erase 0x6 blocks (6 * 512 Bytes) data started at the 0x3 block of eMMC
+#### Kernel
 
-################
-#    Kernel    #
-################
-
+```
 dmesg | grep mmc
 
     [    2.351115] sdhci_msm 7804000.sdhci: No vmmc regulator found
@@ -93,11 +101,14 @@ dmesg | grep mmc
     [   29.951968] EXT4-fs (mmcblk0p7): mounted filesystem with ordered data mode. Opts: (null)
     # HS200 is eMMC bus speed mode, 200MB/s
     # mmc0:0001 008GB1 7.28 GiB has to be matched with the datasheet / eMMC spec.
-
+```
+```
 cd /sys/class/mmc_host/mmc0/mmc0:0001
+
 # CID Register
 cat cid
     110100303038474231006dbd1141a900
+
 # Decode specific fields of CID
 cat manfid
     0x000011
@@ -111,9 +122,11 @@ cat date
     10/2022
 
 cd /sys/class/mmc_host/mmc0/mmc0:0001/block/mmcblk0
+
 # Get size
+# 15269888 is sector size. So its available size = 15269888 * 512 = 7818182656 = 7.28125 GiB
 cat size
-    15269888 # 15269888 is sector size. So its available size = 15269888 * 512 = 7818182656 = 7.28125 GiB
+    15269888
 
 # Dump eMMC
 cd /tmp
@@ -125,12 +138,11 @@ tftp -p 192.168.1.10 -l /tmp/eMMC_flashdump.gzip -r eMMC_flashdump.gzip
 cd /tmp
 tftp -g 192.168.1.10 -l eMMC_flashdump.gzip
 zcat eMMC_flashdump.gzip | dd of=/dev/mmcblk0 bs=512k ; sync
+```
 
+#### Backup Example
 
-#######################
-#    Backup Example   #
-#######################
-
+```
 dd if=/dev/mmcblk0p1  of=SBL1.bin && tftp -p 192.168.1.10 -l SBL1.bin
 dd if=/dev/mmcblk0p2  of=BOOTCONFIG.bin && tftp -p 192.168.1.10 -l BOOTCONFIG.bin
 dd if=/dev/mmcblk0p3  of=BOOTCONFIG1.bin && tftp -p 192.168.1.10 -l BOOTCONFIG1.bin
@@ -166,4 +178,4 @@ dmesg > dmesg.txt
 tftp -p 192.168.1.10 -l dmesg.txt
 fw_printenv > fw_printenv.txt
 tftp -p 192.168.1.10 -l fw_printenv.txt
-
+```

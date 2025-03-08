@@ -1,8 +1,6 @@
-##################
-#    Example 1   #
-##################
+#### Example 1
 
-256MB NAND (2K + 128) (8-bit ECC)
+**256MB NAND (2K + 128) (8-bit ECC)**
 
 ```
 dd if=/dev/zero ibs=128k count=480  | tr '\000' '\377' > out1.pad
@@ -18,11 +16,9 @@ dd if=openwrt-ipq-ipq60xx-ubi-root.img of=out1.pad conv=notrunc
 cat out1.ecc out2.ecc out3.ecc > MW09_nand_272MB.bin
 ```
 
-##################
-#    Example 2   #
-##################
+#### Example 2
 
-512MB NAND (2K + 64) (4-bit ECC)
+**512MB NAND (2K + 64) (4-bit ECC)**
 
 ```
 dd if=/dev/zero ibs=128k count=416  | tr '\000' '\377' > rootfs.pad
@@ -43,11 +39,9 @@ dd if=wifi_fw_ubi_v2.img of=WIFIFW.pad conv=notrunc
 cat out1.ecc out2.ecc out3.ecc out4.ecc out5.ecc > MW08_nand_528MB.bin
 ```
 
-##################
-#    Example 3   #
-##################
+#### Example 3
 
-128MB NAND (2K + 64) (4-bit ECC)
+**128MB NAND (2K + 64) (4-bit ECC)**
 
 ```
 dd if=/dev/zero ibs=128k count=4   | tr '\000' '\377' > SBL1.pad
@@ -105,11 +99,9 @@ APPSBLENV.ecc APPSBL.ecc APPSBL_1.ecc ART.ecc TRAINING.ecc rootfs.ecc \
 rootfs_1.ecc empty.ecc > ECW200_NAND_132MB.bin
 ```
 
-##################
-#    Example 4   #
-##################
+#### Example 4
 
-512MB NAND (4K + 256) (8-bit ECC)
+**512MB NAND (4K + 256) (8-bit ECC)**
 
 ```
 dd if=/dev/zero ibs=128k count=4    | tr '\000' '\377' > TRAINING.pad
