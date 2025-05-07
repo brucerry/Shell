@@ -3,7 +3,8 @@ $srcArray = @(
     "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt14.04"
     "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt16.04"
     "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt18.04"
-    "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt22.04"
+    "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt22.04_airoha"
+    "\\wsl.localhost\Ubuntu-24.04\home\bruce\share\ubt22.04_qsdk"
 )
 $dst = "my-destination-path"
 
