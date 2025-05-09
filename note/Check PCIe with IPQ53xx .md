@@ -27,5 +27,6 @@ cat /proc/bus/pci/devices
 | ID       | Meaning      |
 | -------- | ------------ |
 | 17cb1005 | QCA constant |
-| 17cb110c | QCA Waikiki  |
+| 17cb1109 | QCA Waikiki  |
+| 17cb110c | QCA Pebble   |
 | 17cb110b | QCA York     |
