@@ -8,7 +8,7 @@ apt install quilt -y
 #### Create patch
 ```
 cd ${Root}/qsdk/
-make package/boot/uboot-envtools/{clean,prepare} V=s QUILT=1
+make package/boot/uboot-envtools/{clean,prepare} V=s -j1 QUILT=1
 cd ${Root}/qsdk/build_dir/target*/u-boot-2014.10/
 quilt push -a
 quilt new 400-fw_printenv-support-MLCNANDFLASH.patch
@@ -24,5 +24,5 @@ cp patches/400-fw_printenv-support-MLCNANDFLASH.patch ${Root}/qsdk/package/boot/
 ```
 
 #### Test compile
-cd ${Root}/qsdk/
-make package/boot/uboot-envtools/{clean,compile}
+cd ${Root}/qsdk/ \
+make package/boot/uboot-envtools/{clean,compile} V=s -j1
