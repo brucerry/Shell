@@ -13,7 +13,7 @@ cd ${Root}/qsdk/build_dir/target*/u-boot-2014.10/
 quilt push -a
 quilt new 400-fw_printenv-support-MLCNANDFLASH.patch
 quilt add tools/env/fw_env.c
-vim tools/env/fw_env.c
+vim tools/env/fw_env.c   # Edit and save your code here
 quilt diff
 quilt refresh
 ```
