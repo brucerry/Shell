@@ -24,5 +24,7 @@ cp patches/400-fw_printenv-support-MLCNANDFLASH.patch ${Root}/qsdk/package/boot/
 ```
 
 #### Test compile
-cd ${Root}/qsdk/ \
+```
+cd ${Root}/qsdk/
 make package/boot/uboot-envtools/{clean,compile} V=s -j1
+```
