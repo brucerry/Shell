@@ -1,4 +1,4 @@
-#### U-Boot
+## U-Boot
 
 ```
 > mmc info
@@ -85,7 +85,7 @@
 > mmc erase 0x3 0x6 
 ```
 
-#### Kernel
+## Kernel
 
 ```
 dmesg | grep mmc
