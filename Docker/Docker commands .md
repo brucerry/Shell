@@ -34,21 +34,27 @@ docker exec -it {container_name} bash
 #### Example Commands
 ```
 docker login
+
 docker commit ubt14.04 ubt14.04
 docker tag ubt14.04 brucerry/ubt14.04
 docker push brucerry/ubt14.04
+
 docker commit ubt16.04 ubt16.04
 docker tag ubt16.04 brucerry/ubt16.04
 docker push brucerry/ubt16.04
+
 docker commit ubt18.04 ubt18.04
 docker tag ubt18.04 brucerry/ubt18.04
 docker push brucerry/ubt18.04
+
 docker commit ubt22.04_airoha ubt22.04_airoha
 docker tag ubt22.04_airoha brucerry/ubt22.04_airoha
 docker push brucerry/ubt22.04_airoha
+
 docker commit ubt22.04_qsdk ubt22.04_qsdk
 docker tag ubt22.04_qsdk brucerry/ubt22.04_qsdk
 docker push brucerry/ubt22.04_qsdk
+
 docker commit ubt24.04_bpi ubt24.04_bpi
 docker tag ubt24.04_bpi brucerry/ubt24.04_bpi
 docker push brucerry/ubt24.04_bpi
