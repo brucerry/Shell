@@ -24,6 +24,9 @@ docker push brucerry/{image_name}
 ```
 docker commit {container_name} {new_image_name}
 docker run -it --name {new_container_name} -v {local/path/}:{/home/example/path} {new_image_name}
+
+# Create account
+docker run -it --name ubt24.04_bpi --privileged --user ubuntu:ubuntu -v /home/bruce/share:/home/ubuntu/share brucerry/ubt24.04_bpi
 ```
 
 #### Execute container bash
