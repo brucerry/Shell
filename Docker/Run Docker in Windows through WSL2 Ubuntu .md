@@ -81,24 +81,28 @@ docker login
 docker pull brucerry/ubt14.04
 docker pull brucerry/ubt16.04
 docker pull brucerry/ubt18.04
-docker pull brucerry/ubt22.04
+docker pull brucerry/ubt22.04_qsdk
+docker pull brucerry/ubt22.04_airoha
+docker pull brucerry/ubt24.04_bpi
 docker images
 docker run -it --name ubt14.04 -v /home/bruce/share:/home/build/share brucerry/ubt14.04
 docker run -it --name ubt16.04 -v /home/bruce/share:/root/share brucerry/ubt16.04
 docker run -it --name ubt18.04 -v /home/bruce/share:/root/share brucerry/ubt18.04
-docker run -it --name ubt22.04 -v /home/bruce/share:/home/build/share brucerry/ubt22.04
+docker run -it --name ubt22.04_qsdk -v /home/bruce/share:/home/build/share brucerry/ubt22.04_qsdk
+docker run -it --name ubt22.04_airoha -v /home/bruce/share:/home/build/share brucerry/ubt22.04_airoha
+docker run -it --name ubt24.04_bpi -v /home/bruce/share:/home/build/share brucerry/ubt24.04_bpi
 ```
 
 #### Stop container
 ```
-docker stop ubt22.04
+docker stop ubt24.04_bpi
 docker ps -a
 ```
 
 #### Start container
 ```
-docker start ubt22.04
-docker exec -it ubt22.04 bash
+docker start ubt24.04_bpi
+docker exec -it ubt24.04_bpi bash
 ```
 
 #### Stop Docker Daemon
