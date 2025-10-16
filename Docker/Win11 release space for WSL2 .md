@@ -1,6 +1,6 @@
 ## Windows PowerShell
 
-Run in administrator mode
+#### Run in administrator mode
 
 ```
 wsl --shutdown
